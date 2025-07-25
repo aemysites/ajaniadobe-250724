@@ -34,7 +34,6 @@
   box-sizing: border-box;
 }
 
-/* Improve grid gaps for better breathing room and keep 4 columns desktop */
 .cards.cards18 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -62,7 +61,6 @@
   }
 }
 
-/* Remove border/background from cards; align icon to top of text */
 .cards.cards18 > ul > li {
   display: flex;
   flex-direction: row;
@@ -79,7 +77,6 @@
   height: 100%;
 }
 
-/* Icon container: keep only layout, no forced height except for alignment */
 .cards.cards18 .cards-card-image {
   display: flex;
   align-items: flex-start;
@@ -88,8 +85,6 @@
   width: 24px;
   min-width: 24px;
   max-width: 24px;
-
-  /* No fixed height, so it aligns with first line of text */
   box-sizing: content-box;
   flex-shrink: 0;
   flex-grow: 0;
@@ -114,7 +109,6 @@
   padding: 0;
 }
 
-/* Cards body is single text block, fills remaining space */
 .cards.cards18 .cards-card-body {
   margin: 0;
   padding: 0;
@@ -133,4 +127,180 @@
   padding: 0;
   letter-spacing: 0;
   overflow-wrap: break-word;
+}
+
+
+.cards.cards32 {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+}
+
+/* Grid: enforce equal height for all items in a row, tighter column/row gaps */
+.cards.cards32 > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+/* Card: fill row height, more compact padding, slightly smaller corners */
+.cards.cards32 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+  padding: 8px 6px 8px 0;
+  min-height: 112px;
+  max-width: 370px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Image: more prominent, even closer to text */
+.cards.cards32 .cards-card-image {
+  flex: 0 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+  min-width: 150px;
+  min-height: 150px;
+  height: 100%;
+}
+
+.cards.cards32 .cards-card-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 9px;
+  display: block;
+  background: #eee;
+  box-shadow: none;
+}
+
+/* Text: limit width, fill height, compact vertical spacing */
+.cards.cards32 .cards-card-body {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: stretch;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: calc(100% - 150px - 8px);
+  height: 100%;
+}
+
+/* Pill + meta: always inline, very compact, subtle */
+.cards.cards32 .cards-card-body p:nth-child(1),
+.cards.cards32 .cards-card-body p:nth-child(2) {
+  display: inline-block;
+  margin: 0 3px 0 0;
+  line-height: 1.2;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.cards.cards32 .cards-card-body p:nth-child(1) {
+  background: #ededed;
+  color: #222;
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-right: 5px;
+}
+
+.cards.cards32 .cards-card-body p:nth-child(2) {
+  color: #666;
+  font-size: 0.82rem;
+  font-weight: 400;
+  margin-right: 0;
+}
+
+/* Title: slightly tighter, bold, compact */
+.cards.cards32 .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.07rem;
+  color: #222;
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 1px 0 4px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Description: smaller, subtle, compact */
+.cards.cards32 .cards-card-body p:nth-child(4) {
+  color: #666;
+  font-size: 0.87rem;
+  margin: 0 0 2px;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+/* Read link: very close to description, matches style */
+.cards.cards32 .cards-card-body p:nth-child(5) {
+  color: #222;
+  font-size: 0.87rem;
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 2px 0 0;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/* Responsive: stack, adjust image/text for small screens */
+@media (width <= 900px) {
+  .cards.cards32 {
+    padding: 0 2vw;
+    max-width: 100%;
+  }
+
+  .cards.cards32 > ul {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    justify-items: stretch;
+  }
+
+  .cards.cards32 > ul > li {
+    max-width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    border-radius: 7px;
+    padding: 6px 4px 6px 0;
+    min-height: 68px;
+    height: auto;
+  }
+
+  .cards.cards32 .cards-card-image {
+    margin-left: 4px;
+    margin-right: 6px;
+    min-width: 60px;
+    min-height: 60px;
+  }
+
+  .cards.cards32 .cards-card-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+  }
+
+  .cards.cards32 .cards-card-body {
+    max-width: calc(100% - 60px - 6px);
+    font-size: 0.91rem;
+  }
 }
