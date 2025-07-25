@@ -2,4 +2,19 @@
   "project": "AEM XWalk Boilerplate",
   "editUrlLabel": "AEM Editor",
   "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open"
+    "plugins": [
+    {
+      "id": "aem-genai-variations",
+      "titleI18n": {
+        "en": "Generate with AI"
+      },
+      "environments": [
+        "preview"
+      ],
+      "includePaths": [
+        "**.docx**"
+      ],
+      "event": "aem-genai-variations-sidekick"
+    }
+  ]
 }
