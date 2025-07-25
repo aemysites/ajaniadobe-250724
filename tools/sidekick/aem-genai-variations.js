@@ -19,14 +19,14 @@
   }
 
   // The code snippet for the Sidekick V1 extension, https://chromewebstore.google.com/detail/aem-sidekick/ccfggkjabjahcjoljmgmklhpaccedipo?hl=en
-  const sidekick = document.querySelector('helix-sidekick');
+  const sidekick = document.querySelector('aem-sidekick');
   if (sidekick) {
     // sidekick already loaded
     sidekick.addEventListener('custom:aem-genai-variations-sidekick', handlePluginButtonClick);
   } else {
     // wait for sidekick to be loaded
     document.addEventListener('sidekick-ready', () => {
-      document.querySelector('helix-sidekick')
+      document.querySelector('aem-sidekick')
         .addEventListener('custom:aem-genai-variations-sidekick', handlePluginButtonClick);
     }, { once: true });
   }
